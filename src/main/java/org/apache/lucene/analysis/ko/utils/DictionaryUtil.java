@@ -286,7 +286,7 @@ public class DictionaryUtil {
       prefixs = new HashMap<String, String>();
       readFile(prefixs,KoreanEnv.FILE_PREFIX);
     }
-
+    
     if(prefixs.get(str)==null) return false;
     else return true;
   }

@@ -1,4 +1,4 @@
-﻿! Licensed to the Apache Software Foundation (ASF) under one or more
+! Licensed to the Apache Software Foundation (ASF) under one or more
 ! contributor license agreements.  See the NOTICE file distributed with
 ! this work for additional information regarding copyright ownership.
 ! The ASF licenses this file to You under the Apache License, Version 2.0
@@ -7597,6 +7597,7 @@ WORD,NVZDBIPSCC
 당좌,100000000X
 당직,100100000X
 당직자,100000000X
+당진,100000000X
 당질,100000000X
 당차,010000000X
 당찮,010000000X
@@ -12680,7 +12681,7 @@ WORD,NVZDBIPSCC
 보결,100100000X
 보고,100110000X
 보고문,100000000X
-보고서,100000000X
+보고서,100110000X
 보관,100110000X
 보궐,100110000X
 보균,100100000X
@@ -21370,6 +21371,7 @@ WORD,NVZDBIPSCC
 울보,100000000X
 울부짖,010000000X
 울분,100100000X
+울산,100000000X
 울상,100000000X
 울안,100000000X
 울울하,010000000X

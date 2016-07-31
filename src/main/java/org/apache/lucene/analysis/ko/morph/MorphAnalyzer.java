@@ -105,9 +105,10 @@ public class MorphAnalyzer {
     for(AnalysisOutput o:candidates) {
     
       if(o.getPatn()==PatternConstants.PTN_N) {
-    	  if(o.getScore()==AnalysisOutput.SCORE_CORRECT) 
+    	  if(o.getScore()==AnalysisOutput.SCORE_CORRECT) {
+    		  correct=true;
     		  break;
-    	  else
+    	  } else
     		  continue;
       }
       
@@ -117,7 +118,9 @@ public class MorphAnalyzer {
       }
       
       if(o.getPatn()<PatternConstants.PTN_VM&&o.getStem().length()>2) {
-        if(!(correct&&o.getPatn()==PatternConstants.PTN_N)) confirmCNoun(o);
+        if(!(correct&&o.getPatn()==PatternConstants.PTN_N) 
+        		&& !"내".equals(o.getVsfx())) 
+        	confirmCNoun(o);
         if(o.getScore()>=AnalysisOutput.SCORE_COMPOUNDS) changed=true;
       }
     
@@ -154,7 +157,7 @@ public class MorphAnalyzer {
         hasCorrect = true;
       }
       else if(o.getPos()==PatternConstants.POS_NOUN
-          &&o.getScore()==AnalysisOutput.SCORE_CORRECT) 
+          &&o.getScore()>=AnalysisOutput.SCORE_SIM_CORRECT) 
       {
         
         if((hasCorrect||correctCnoun)&&o.getCNounList().size()>0) continue;
@@ -484,7 +487,8 @@ public class MorphAnalyzer {
   
   public boolean confirmCNoun(AnalysisOutput o, boolean existInDic) throws MorphException  {
 
-    if(o.getStem().length()<3) return false;
+    if(o.getScore()>=AnalysisOutput.SCORE_COMPOUNDS) 
+    	return false;
         
     List<CompoundEntry> results = cnAnalyzer.analyze(o.getStem());
     boolean hasOneWord = false;
